@@ -5,15 +5,7 @@ import ansarbektassov.exceptions.TicketBadParamsException;
 public class TicketValidator {
 
     public static String idValidator(String id) {
-        String[] idParts = id.split("");
-        int digitsCounter = 0;
-        try {
-            for(String idPart : idParts) {
-                Integer.parseInt(idPart);
-                digitsCounter++;
-            }
-        } catch (NumberFormatException ignored) {}
-        if(digitsCounter > 4) throw new TicketBadParamsException("Id should have max 4 digits and/or chars");
+        if(id.length() > 4) throw new TicketBadParamsException("Id should have max 4 digits and/or chars");
         return id;
     }
 
